@@ -1,0 +1,351 @@
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+html {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+html, body {
+  height:100%;
+  color:#333;
+  font-family:'Open Sans', 'Helvetica', sans-serif;
+}
+
+
+#background {
+  position:absolute;
+  top:0; bottom:0;
+  right:0; left:0;
+  z-index:-1;
+
+  background: url(../img/hall.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#center {
+  padding:2rem;
+  background-color:rgba(255,255,255,0.7);
+}
+
+.button {
+  border: 1px solid #333;
+  padding:0.5rem;
+  background-color:rgba(255,255,255,0.7);
+  border-radius:0.5rem;
+
+  -webkit-transition: background 0.2s ease-in-out;
+  -moz-transition: background 0.2s ease-in-out;
+  -ms-transition: background 0.2s ease-in-out;
+  -o-transition: background 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out;
+}
+
+.button:hover {
+  background-color:rgba(255, 255, 255, 0.4);
+  border: 1px solid #333;
+}
+
+.icon {
+  display:inline-block;
+  padding:0.5rem;
+  padding-left:2.5rem;
+  background: url(../img/github.png) no-repeat 0 -4px;
+  background-size:contain;
+  background-position:center left;
+}
+
+h1, h2 {
+  margin:1rem 0;
+}
+
+h1 {
+  font-size:3rem;
+  letter-spacing:2rem;
+  margin-right:-2rem;
+  text-transform:uppercase;
+
+  /*text-shadow: 0 0 5px #fff,
+  0 0 10px #fff, 0 0 15px #fff,
+  0 0 20px #C51A1A, 0 0 30px #C51A1A,
+  0 0 40px #C51A1A, 0 0 50px #C51A1A,
+  0 0 75px #C51A1A;*/
+}
+
+h2 {
+  font-weight:400;
+  text-transform:uppercase;
+  font-family:'Droid Serif';
+
+  margin-bottom:2rem;
+}
+
+code {
+  background-color:rgba(255,255,255,0.7);
+  border:1px solid #666;
+  border-radius:8px;
+  padding:1px 8px;
+}
+
+#install:hover {
+  cursor:pointer;
+}
+
+#small {
+  display:inline-block;
+  overflow:hidden;
+}
+
+.fancy {
+  line-height: 0.4;
+}
+.fancy span {
+  display: inline-block;
+  position: relative;
+}
+.fancy span:before,
+.fancy span:after {
+  content: "";
+  position: absolute;
+  height:5px;
+  border-bottom: 1px solid #333;
+  border-top: 1px solid #333;
+  top: 0;
+  width: 600px;
+}
+.fancy span:before {
+  right: 100%;
+  margin-right: 1rem;
+}
+.fancy span:after {
+  left: 100%;
+  margin-left: 1rem;
+}
+
+ul {
+  list-style:none;
+}
+
+a {
+  text-decoration:none;
+  color:#333;
+  border-bottom: 2px solid #666;
+  padding-bottom: 2px;
+}
+
+a:hover {
+  border-bottom:none;
+}
+
+body {
+   display: table;
+   width: 100%;
+}
+
+#main {
+   display: table-cell;
+   text-align: center;
+   vertical-align: middle;
+}
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

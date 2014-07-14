@@ -1,4 +1,4 @@
-potter-shell
+pottershell
 ============
 
-Become a wizard.
+Cast spells in your shells.

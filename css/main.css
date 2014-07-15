@@ -81,8 +81,11 @@ html, body {
 }
 
 #center {
+  background-color:rgba(255,255,255,0.8);
+}
+
+#center {
   padding:2rem;
-  background-color:rgba(255,255,255,0.7);
 }
 
 .button {
@@ -151,6 +154,7 @@ code {
 #small {
   display:inline-block;
   overflow:hidden;
+  position:relative;
 }
 
 .fancy {
@@ -205,6 +209,42 @@ body {
    vertical-align: middle;
 }
 
+.three-quarters, .one-quarter {
+  box-sizing:border-box;
+  float:left;
+  padding-right:1rem;
+}
+
+.three-quarters:last-of-type, .one-quarter:last-of-type {
+  padding-right:0;
+}
+
+.three-quarters {
+  width:75%;
+}
+
+.one-quarter {
+  width:25%;
+}
+
+p {
+  line-height:1.4;
+}
+
+.columns {
+  max-width:500px;
+  margin:0 auto;
+}
+
+.columns:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.one-quarter {
+  padding-top:1.75rem;
+}
 
 /* ==========================================================================
    Media Queries

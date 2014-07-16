@@ -81,7 +81,7 @@ html, body {
 }
 
 #center {
-  background-color:rgba(255,255,255,0.8);
+  /*background-color:rgba(255,255,255,0.8);*/
 }
 
 #center {
@@ -138,13 +138,6 @@ h2 {
   font-family:'Droid Serif';
 
   margin-bottom:2rem;
-}
-
-code {
-  background-color:rgba(255,255,255,0.7);
-  border:1px solid #666;
-  border-radius:8px;
-  padding:1px 8px;
 }
 
 #install:hover {

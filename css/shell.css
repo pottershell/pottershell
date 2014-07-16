@@ -1,0 +1,194 @@
+#shell {
+  text-align:left;
+}
+
+#shell{
+  width:90%;
+  max-width:700px;
+	margin: 0 auto;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+/* TOP BAR */
+.shell-toolbar {
+    position:relative;
+
+    height: auto;
+    background: #bebebe;
+    border-radius:0.5rem 0.5rem 0 0;
+
+    background: #cfcfcf; /* Old browsers */
+}
+
+/*-----TRAFFIC LIGHTS-----*/
+.shell-toolbar .shell-lights{
+    position:absolute;
+    top:0.25rem;
+    left:0.5rem;
+}
+.light {
+    float:left;
+    width:1rem;
+    height:1rem;
+    margin-right:0.3rem;
+    border-radius:50%;
+    -webkit-box-shadow:0px 1px 0px rgba(255,255,255,0.5), 0px 0px 2px #000 inset;
+    -moz-box-shadow:0px 1px 0px rgba(255,255,255,0.5), 0px 0px 2px #000 inset;
+    box-shadow:0px 1px 0px rgba(255,255,255,0.5), 0px 0px 2px #000 inset;
+}
+
+
+/*--RED--*/
+.red{
+   background: #f41b16; /* Old browsers */
+   background: -moz-linear-gradient(top,  #f41b16 0%, #fc7471 100%); /* FF3.6+ */
+   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f41b16), color-stop(100%,#fc7471)); /* Chrome,Safari4+ */
+   background: -webkit-linear-gradient(top,  #f41b16 0%,#fc7471 100%); /* Chrome10+,Safari5.1+ */
+   background: -o-linear-gradient(top,  #f41b16 0%,#fc7471 100%); /* Opera 11.10+ */
+   background: -ms-linear-gradient(top,  #f41b16 0%,#fc7471 100%); /* IE10+ */
+   background: linear-gradient(top,  #f41b16 0%,#fc7471 100%); /* W3C */
+}
+.red:active{
+
+    background: #972f2e; /* Old browsers */
+    background: -moz-linear-gradient(top,  #972f2e 0%, #fc7471 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#972f2e), color-stop(100%,#fc7471)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #972f2e 0%,#fc7471 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #972f2e 0%,#fc7471 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #972f2e 0%,#fc7471 100%); /* IE10+ */
+    background: linear-gradient(top,  #972f2e 0%,#fc7471 100%); /* W3C */
+}
+
+/*--YELLOW--*/
+.yellow{
+    background: #f4a316; /* Old browsers */
+    background: -moz-linear-gradient(left,  #f4a316 0%, #fcc371 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#f4a316), color-stop(100%,#fcc371)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #f4a316 0%,#fcc371 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #f4a316 0%,#fcc371 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #f4a316 0%,#fcc371 100%); /* IE10+ */
+    background: linear-gradient(left,  #f4a316 0%,#fcc371 100%); /* W3C */
+}
+.yellow:active{
+    background: #ae4f1e; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ae4f1e 0%, #fcc371 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ae4f1e), color-stop(100%,#fcc371)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ae4f1e 0%,#fcc371 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ae4f1e 0%,#fcc371 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ae4f1e 0%,#fcc371 100%); /* IE10+ */
+    background: linear-gradient(top,  #ae4f1e 0%,#fcc371 100%); /* W3C */
+}
+
+/*--GREEN--*/
+.green{
+
+    background: #4cae2e; /* Old browsers */
+    background: -moz-linear-gradient(top,  #4cae2e 0%, #dafc71 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4cae2e), color-stop(100%,#dafc71)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #4cae2e 0%,#dafc71 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #4cae2e 0%,#dafc71 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #4cae2e 0%,#dafc71 100%); /* IE10+ */
+    background: linear-gradient(top,  #4cae2e 0%,#dafc71 100%); /* W3C */
+
+}
+.green:active{
+  background: #48752b; /* Old browsers */
+  background: -moz-linear-gradient(top,  #48752b 0%, #dafc71 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#48752b), color-stop(100%,#dafc71)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #48752b 0%,#dafc71 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #48752b 0%,#dafc71 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #48752b 0%,#dafc71 100%); /* IE10+ */
+  background: linear-gradient(top,  #48752b 0%,#dafc71 100%); /* W3C */
+
+}
+
+/*-----TITLE-----*/
+.shell-title{
+    text-align:center;
+    font-family: "Lucida Grande", "Verdana", sans-serif;
+    text-shadow: 0px 1px 0px rgba(255,255,255,0.5);
+    line-height:1.5;
+}
+
+
+.shell-body {
+    font-family: "Courier New", monospace;
+    min-height:200px;
+    background:rgba(0,0,0, 0.9);
+    padding:1rem;
+
+    color: #FFF;
+
+    border:2px solid rgba(255, 255, 255, 0.4);
+    border-top:none;
+    border-radius:0 0 1rem 1rem;
+}
+
+@keyframes blink
+{
+	0%   {  background:rgba(99,222,0,100);  }
+	100% {  background:rgba(99,222,0,0);  }
+}
+
+@-webkit-keyframes blink {
+	0%   {  background:rgba(99,222,0,100);  }
+	100% {  background:rgba(99,222,0,0);  }
+}
+@-moz-keyframes blink {
+	0%   {  background:rgba(99,222,0,100);  }
+	100% {  background:rgba(99,222,0,0);  }
+}
+
+.cursor {
+  background:#63de00;
+
+  position:relative;
+  top:3px;
+
+  display:inline-block;
+  width:0.5rem;
+  height:1rem;
+
+  -webkit-animation-name: blink;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-name: blink;
+  -moz-animation-duration: 1.5s;
+  -moz-animation-iteration-count: infinite;
+}
+
+.shell-body {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#install {
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+#install::-webkit-selection { background: #8ba9e6; }
+#install::selection { background: #8ba9e6; }
+
+.shell-body p {
+  font-size:1rem;
+  margin:0;
+}
+
+.command {
+  color:#63de00;
+}
+
+#shell a {
+  color:#63de00;
+  border-bottom:none;
+}

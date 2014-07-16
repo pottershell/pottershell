@@ -13,6 +13,7 @@
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700|Droid+Serif' rel='stylesheet' type='text/css'>
 
         <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/shell.css">
         <link rel="stylesheet" href="css/main.css">
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
@@ -28,7 +29,34 @@
         <div id="main">
           <div id="center">
             <div id="small">
-              <h1>Pottershell</h1>
+
+              <div id="shell">
+               	<div class="shell-toolbar">
+            			<div class="shell-lights">
+            				<div class="light red">
+            				</div>
+            				<div class="light yellow">
+            				</div>
+            				<div class="light green">
+            				</div>
+            			</div>
+            			<div class="shell-title">
+            				pottershell
+            			</div>
+              	</div>
+              	<div class="shell-body">
+                  <p class="command">harry$ pottershell --help</p>
+                  <p>Cast spells in your shells! Pottershell aliases common unix and git commands to Harry Potter spells. Install with
+                    <span class="command" id="install" onClick="select()">curl&nbsp;http://git.io/WKFFJQ&nbsp;|&nbsp;$SHELL</span>,
+                    then read the documentation or contribute on <a href="http://github.com/jacksondc/potter-shell">GitHub</a></p>
+                  <p class="command">harry$ <span class="cursor"></span></p>
+                  <!--<p>pottershell $ Cast spells in your shells</p>
+              		<p>pottershell $ aliases common unix and git commands to Harry Potter spells. Install with
+              <code id="install" onClick="select()">curl&nbsp;http://git.io/WKFFJQ&nbsp;|&nbsp;$SHELL</code>  </p>-->
+              	</div>
+              </div>
+
+              <!--<h1>Pottershell</h1>
               <h2 class="fancy"><span>Cast spells in your shells</span></h2>
 
               <div class="columns">
@@ -39,7 +67,7 @@
                   <div class="one-quarter">
                     <a class="button" href="http://github.com/jacksondc/potter-shell"><span class="icon">Docs</span></a></p>
                   </div>
-              </div>
+              </div>-->
             </div>
           </div>
         </div>

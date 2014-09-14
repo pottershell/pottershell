@@ -16,8 +16,8 @@ if [ $? ]; then
 	# This works due to the fact that the install snippet pipes to $SHELL, not sh or bash
 	if [ $SHELL == bash ]; then
 		echo "Ah! I see you're using bash. Lovely shell, bash. Solid default."
-	        CONTINUE_INSTALL_LOOP=0
-		while [ CONTINUE_INSTALL_LOOP ]; do
+	        CONTINUE_INSTALL_LOOP=y
+		while [ $CONTINUE_INSTALL_LOOP == y ]; do
 			read -n 1 -p "Shall I automatically install pottershell to your .bash_profile, or would you prefer to do that yourself? [Ynq?] "
 			if ! ([ $REPLY == Y ] || \
 			      [ $REPLY == y ] || \
@@ -45,10 +45,10 @@ if [ $? ]; then
 			
 			if [ $REPLY == y ] || [ $REPLY == Y ]; then
 				AUTOINSTALL=y
-				CONTINUE_INSTALL_LOOP=1
+				CONTINUE_INSTALL_LOOP=n
 			else if [ $REPLY == n ] || [ $REPLY == N ]; then
 				AUTOINSTALL=n
-				CONTINUE_INSTALL_LOOP=1
+				CONTINUE_INSTALL_LOOP=n
 			else if [ $REPLY == q ] || [ $REPLY == Q ]; then
 				echo "OK, I'm quitting. You may wish to \`rm -rf ~/.pottershell\`."
 				echo "Bye!"
@@ -56,7 +56,7 @@ if [ $? ]; then
 			else if [ $REPLY == ? ]; then
 				echo "In order for pottershell to work, it needs to be referenced in your shell's startup script."
 				# Please forgive me for this escaping monstrosity
-				echo "pottershell can do this automatically for you by running \`echo \"\\nsource ~/.pottershell/pottershell.sh\\n\" >> ~/.bash_profile\`."
+				echo "pottershell can do this automatically for you by running \`printf \"source ~/.pottershell/pottershell.sh\\n\" >> ~/.bash_profile\`."
 				echo "Type y to have pottershell automatically run this for you."
 				echo "Type n to have pottershell do nothing."
 				echo "Type q to quit the pottershell installation."
@@ -68,9 +68,13 @@ if [ $? ]; then
 		UNKNOWN_SHELL=
 	fi
 
-	if [ -n $AUTOINSTALL ]; then
-		if [ $SHELL = bash ]; then echo "\nsource ~/.pottershell/pottershell.sh\n" >> ~/.bash_profile; fi
-	fi
+	if [ $AUTOINSTALL == y ]; then
+		if [ $SHELL = bash ]; then printf "\nsource ~/.pottershell/pottershell.sh\n" >> ~/.bash_profile; fi
+		echo "Successfully autoinstalled pottershell to your initialization file."
+	else if [ $AUTOINSTALL == n ]; then
+		echo "Refraining from autoinstalling."
+	fi; fi
+	
 	
 	echo "               __________                          ______      ___________"
 	echo " ________________  /__  /_____________      __________  /_________  /__  /"

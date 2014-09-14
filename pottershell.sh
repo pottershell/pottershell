@@ -4,7 +4,6 @@
 
 # ENVIRONMENT VARIABLES
 
-# POTTER-SHELL_INSTALL_DIR: path value, sets the path to install potter-shell to. Currently ignored.
 # POTTER-SHELL_ECHO_COMMAND: any value, turns on command echoing. Currently ignored.
 # POTTER-SHELL_NO_ECHO_COMMAND: any value, turns off command echoing. This is the default. Currently ignored.
 # POTTER-SHELL_SET_GIT: any value, turns on support for setting git aliases, overrides POTTER-SHELL_NO_SET_GIT. This is the default. Currently ignored.
@@ -59,40 +58,14 @@ function add_git_alias() {
 
 # evaluate shell aliases
 
-for i in $(cat shell.aliases); do
-	echo $i
-	if [ -z $_POTTERSHELL_FIRST_ALIAS ]; then
-		_POTTERSHELL_FIRST_ALIAS=$i
-		throw_info "Setting _POTTERSHELL_FIRST_ALIAS to $_POTTERSHELL_FIRST_ALIAS"
-	else
-		throw_info "Setting alias. _POTTERSHELL_FIRST_ALIAS is set to $_POTTERSHELL_FIRST_ALIAS"
-		add_shell_alias $_POTTERSHELL_FIRST_ALIAS $i
-		unset _POTTERSHELL_FIRST_ALIAS
-	fi
-done
+# this used to have a fancy for loop, but there were bugs.
+# so now it's some lame `source`-based evaluation.
 
-# just in case
-
-if [ -n $_POTTERSHELL_FIRST_ALIAS ]; then
-	throw_warn "Something has gone wrong. Either there is a bug or a malformed .aliases file."
-	throw_warn "Continuing anyway."
-fi
+source shell.aliases
 
 # evaluate git aliases
 
-for i in $(cat git.aliases); do
-	if [ -z $_POTTERSHELL_FIRST_ALIAS ]; then
-		_POTTERSHELL_FIRST_ALIAS=$i
-	else
-		add_git_alias $_POTTERSHELL_FIRST_ALIAS $i
-		unset _POTTERSHELL_FIRST_ALIAS
-	fi
-done
+# this used to have a fancy for loop, but there were bugs.
+# so now it's some lame `source`-based evaluation.
 
-# just in case
-
-if [ -n $_POTTERSHELL_FIRST_ALIAS ]; then
-	echo $_POTTERSHELL_FIRST_ALIAS
-	throw_warn "Something has gone wrong. Either there is a bug or a malformed .aliases file."
-	throw_warn "Continuing anyway."
-fi
+source git.aliases

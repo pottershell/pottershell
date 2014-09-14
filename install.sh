@@ -7,9 +7,7 @@ else
 	exit 1
 fi
 
-git clone git://github.com/jacksondc/pottershell.git ~/.pottershell
-
-if [ $? ]; then
+if git clone git://github.com/jacksondc/pottershell.git ~/.pottershell; then
 	# Cloning succeeded
 	
 	# Clever installation based on shell detection

@@ -64,6 +64,7 @@ if git clone git://github.com/jacksondc/pottershell.git ~/.pottershell; then
 		done
 	else
 		UNKNOWN_SHELL=
+		AUTOINSTALL=x
 	fi
 
 	if [ $AUTOINSTALL == y ]; then
@@ -82,7 +83,7 @@ if git clone git://github.com/jacksondc/pottershell.git ~/.pottershell; then
 	echo " /_/                                         ...has been installed. Enjoy!"
 	echo
 
-	if [ -n $UNKNOWN_SHELL ]; then
+	if ! [ -z ${UNKNOWN_SHELL+x} ]; then
 		echo 'Now all you need to do is put `source ~/.pottershell/pottershell.sh` in your shell startup.'
 		echo "I can't do this automatically, because I don't know what kind of shell $SHELL is. Perhaps send a pull request?"
 	fi

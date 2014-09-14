@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 if type git >/dev/null; then
-	echo "OK, I'm going to install potter-shell now."
+	echo "OK, I'm going to install pottershell now."
 else
-	echo "You don't have git installed! Please install git, then try installing potter-shell again."
+	echo "You don't have git installed! Please install git, then try installing pottershell again."
 	exit 1
 fi
 
@@ -15,24 +15,51 @@ if [ $? ]; then
 	# Clever installation based on shell detection
 	# This works due to the fact that the install snippet pipes to $SHELL, not sh or bash
 	if [ $SHELL == bash ]; then
-		echo "Ah! I see you're using bash. Lovely shell, bash."
-		read -n 1 -p "Shall I automatically install potter-shell to your .bash_profile, or would you prefer to do that yourself? [Ynq?] "
-		if [ $REPLY == y || $REPLY == Y ]; then
-			AUTOINSTALL = y
-		else if [ $REPLY == n || $REPLY == N ]; then
-			AUTOINSTALL = n
-		else if [ $REPLY == q || $REPLY == Q ]; then
-			echo "OK, I'm quitting. You may wish to \`rm -rf ~/.pottershell\`."
-			echo "Bye!"
-		else if [ $REPLY == ? ]; then
-			echo "In order for potter-shell to work, it needs to be referenced in your shell's startup script."
-			# Please forgive me for this escaping monstrosity
-			echo "potter-shell can do this automatically for you by running \`echo \"\\nsource ~/.pottershell/pottershell.sh\\n\" >> ~/.bash_profile\`."
-			echo "Type y to have potter-shell automatically run this for you."
-			echo "Type n to have potter-shell do nothing."
-			echo "Type q to quit the potter-shell installation."
-			echo "Type ? to have potter-shell display this help text."
-		fi; fi; fi; fi
+		echo "Ah! I see you're using bash. Lovely shell, bash. Solid default."
+	        CONTINUE_INSTALL_LOOP=0
+		while [ CONTINUE_INSTALL_LOOP ]; do
+			read -n 1 -p "Shall I automatically install pottershell to your .bash_profile, or would you prefer to do that yourself? [Ynq?] "
+			if ! ([ $REPLY == Y ] || \
+			      [ $REPLY == y ] || \
+			      [ $REPLY == n ] || \
+			      [ $REPLY == N ] || \
+			      [ $REPLY == q ] || \
+			      [ $REPLY == Q ] || \
+			      [ $REPLY == ? ] ); then
+				# User just pressed enter or replied with something invalid, so we need to prompt again
+				continue
+				
+				# Newline unless user pressed enter
+				if ! [ -n $REPLY ]; then echo; fi
+			fi
+			
+			if [ $REPLY == y ] || [ $REPLY == Y ]; then
+				AUTOINSTALL=y
+				CONTINUE_INSTALL_LOOP=1
+			else if [ $REPLY == n ] || [ $REPLY == N ]; then
+				AUTOINSTALL=n
+				CONTINUE_INSTALL_LOOP=1
+			else if [ $REPLY == q ] || [ $REPLY == Q ]; then
+				echo "OK, I'm quitting. You may wish to \`rm -rf ~/.pottershell\`."
+				echo "Bye!"
+				exit 3
+			else if [ $REPLY == ? ]; then
+				echo "In order for pottershell to work, it needs to be referenced in your shell's startup script."
+				# Please forgive me for this escaping monstrosity
+				echo "pottershell can do this automatically for you by running \`echo \"\\nsource ~/.pottershell/pottershell.sh\\n\" >> ~/.bash_profile\`."
+				echo "Type y to have pottershell automatically run this for you."
+				echo "Type n to have pottershell do nothing."
+				echo "Type q to quit the pottershell installation."
+				echo "Type ? to have pottershell display this help text."
+			fi; fi; fi; fi
+			unset REPLY
+		done
+	else
+		UNKNOWN_SHELL=
+	fi
+
+	if [ -n $AUTOINSTALL ]; then
+		if [ $SHELL = bash ]; then echo "\nsource ~/.pottershell/pottershell.sh\n" >> ~/.bash_profile; fi
 	fi
 	
 	echo "               __________                          ______      ___________"
@@ -42,9 +69,11 @@ if [ $? ]; then
 	echo " _  .___/\____/\__/ \__/ \___//_/           /____/ /_/ /_/\___//_/  /_/   "
 	echo " /_/                                         ...has been installed. Enjoy!"
 	echo
-		
-	echo 'Now all you need to do is put `source ~/.pottershell/pottershell.sh` in your shell startup.'
-	echo "I can't do this automatically, because I don't know what kind of shell $SHELL is. Perhaps send a pull request?"
+
+	if [ -n $UNKNOWN_SHELL ]; then
+		echo 'Now all you need to do is put `source ~/.pottershell/pottershell.sh` in your shell startup.'
+		echo "I can't do this automatically, because I don't know what kind of shell $SHELL is. Perhaps send a pull request?"
+	fi
 else
 	# Cloning failed
 	echo "Something went wrong! Check the output, fix any errors, and try again."

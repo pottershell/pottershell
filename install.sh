@@ -25,13 +25,23 @@ if [ $? ]; then
 			      [ $REPLY == N ] || \
 			      [ $REPLY == q ] || \
 			      [ $REPLY == Q ] || \
-			      [ $REPLY == ? ] ); then
+			      [ $REPLY == ? ] )
+			then
+			
 				# User just pressed enter or replied with something invalid, so we need to prompt again
-				continue
 				
-				# Newline unless user pressed enter
-				if ! [ -n $REPLY ]; then echo; fi
+				if [ -z $REPLY ]; then
+					# User pressed enter
+					true
+				else
+					# User gave some other garbage value
+					echo
+					echo "I didn't understand your reply. Perhaps type ? for help?"
+					continue
+				fi
 			fi
+			
+			echo
 			
 			if [ $REPLY == y ] || [ $REPLY == Y ]; then
 				AUTOINSTALL=y

@@ -262,9 +262,9 @@ a {
   -moz-animation-iteration-count: infinite;
 }
 
-#install::-webkit-selection { background: #8ba9e6; }
-#install::-moz-selection { background: #8ba9e6; }
-#install::selection { background: #8ba9e6; }
+.shell-body *::-webkit-selection { background: #4e74c1; }
+.shell-body *::-moz-selection { background: #4e74c1; }
+.shell-body *::selection { background: #4e74c1; }
 
 .shell-body p {
   font-size:1rem;

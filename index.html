@@ -14,27 +14,27 @@
 		<link rel="stylesheet" href="css/main.css">
 
 		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
-		
+
 		<script>
 			function updateVersion(commitId) {
 				var versionNode = document.getElementById("version");
 				versionNode.innerHTML = commitId;
 			}
-			
+
 			function handleVersion() {
 				var commitData = JSON.parse(this.responseText);
-				var commitId = commitData[0].sha.substring(0, 6);
+				var commitCount = commitData.length;
 
 				if (document.readyState !== "loading") {
-					updateVersion(commitId);
+					updateVersion(commitCount);
 				} else {
 					document.onreadystatechange = function() {
-						updateVersion(commitId);
+						updateVersion(commitCount);
 					};
 				}
-			
+
 			}
-		
+
 			var versionRequest = new XMLHttpRequest();
 			versionRequest.onload = handleVersion;
 			versionRequest.open("get", "https://api.github.com/repos/jacksondc/pottershell/commits", true);

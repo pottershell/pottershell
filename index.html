@@ -14,6 +14,33 @@
 		<link rel="stylesheet" href="css/main.css">
 
 		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+		
+		<script>
+			function updateVersion(commitId) {
+				var versionNode = document.getElementById("version");
+				versionNode.innerHTML = commitId;
+			}
+			
+			function handleVersion() {
+				var commitData = JSON.parse(this.responseText);
+				var commitId = commitData[0].sha.substring(0, 6);
+
+				if (document.readyState !== "loading") {
+					updateVersion(commitId);
+				} else {
+					document.onreadystatechange = function() {
+						updateVersion(commitId);
+					};
+				}
+			
+			}
+		
+			var versionRequest = new XMLHttpRequest();
+			versionRequest.onload = handleVersion;
+			versionRequest.open("get", "https://api.github.com/repos/jacksondc/pottershell/commits", true);
+			versionRequest.send();
+		</script>
+
 	</head>
 	<body>
 		<!--[if lt IE 7]>
@@ -47,12 +74,9 @@
 					<span class="command" onclick="select(this)" id="install">curl&nbsp;-L&nbsp;http://git.io/WKFFJQ&nbsp;|&nbsp;$SHELL</span>,
 					then read the documentation or contribute on <a href="http://github.com/jacksondc/potter-shell">GitHub</a>.</p>
 					<p class="command">harry$ pottershell --version</p>
-					<!-- Note: this --version output modeled after `cp --version` -->
-					<p>pottershell <span id="version">0.1</span></p>
-					<!--<p>Copyright (C) 2014 Jackson de Campos, Alex Jordan</p>
-        --><p>Licensed under the MIT License &lt;<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a>&gt;</p>
-					<!--<p>There is NO WARRANTY, to the extent permitted by law.</p>
-			  --><p>Written by Alex Jordan and Jackson de Campos.</p>
+					<p>pottershell at git commit <span id="version">(unknown)</span></p>
+					<p>Licensed under the MIT License &lt;<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a>&gt;</p>
+					<p>Written by Alex Jordan and Jackson de Campos.</p>
 					<p class="command">harry$ <span class="cursor"></span></p>
 				</div>
 				</div>
@@ -60,7 +84,7 @@
 			</div>
 		</div>
 
-    <script>
+		<script>
 
 			function select(elem) {
 				console.log('selectified');
@@ -75,7 +99,7 @@
 				}
 			}
 
-    </script>
+	        </script>
 
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 		<!--<script>

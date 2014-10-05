@@ -100,6 +100,8 @@ a {
    display: table-cell;
    text-align: center;
    vertical-align: middle;
+   /*background-color:rgba(255, 255, 255, .5);*/
+   background-color:rgba(150,150,150, .5);
 }
 
 #shell {
@@ -222,8 +224,8 @@ a {
 
     color: #FFF;
 
-    border:1px solid rgba(255, 255, 255, 0.4);
-    border-top:none;
+    /*border:1px solid rgba(255, 255, 255, 0.4);
+    border-top:none;*/
     border-radius:0 0 1rem 1rem;
 }
 
@@ -260,25 +262,8 @@ a {
   -moz-animation-iteration-count: infinite;
 }
 
-.shell-body {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-#install {
-  -webkit-touch-callout: text;
-  -webkit-user-select: text;
-  -khtml-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
-  user-select: text;
-}
-
 #install::-webkit-selection { background: #8ba9e6; }
+#install::-moz-selection { background: #8ba9e6; }
 #install::selection { background: #8ba9e6; }
 
 .shell-body p {

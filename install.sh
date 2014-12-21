@@ -12,23 +12,23 @@ if git clone git://github.com/jacksondc/pottershell.git ~/.pottershell; then
 	
 	# Clever installation based on shell detection
 	# This works due to the fact that the install snippet pipes to $SHELL, not sh or bash
-	if [ $SHELL == bash ]; then
+	if [[ $SHELL == bash ]]; then
 		echo "Ah! I see you're using bash. Lovely shell, bash. Solid default."
 	        CONTINUE_INSTALL_LOOP=y
-		while [ $CONTINUE_INSTALL_LOOP == y ]; do
-			read -n 1 -p "Shall I automatically install pottershell to your .bash_profile, or would you prefer to do that yourself? [Ynq?] "
-			if ! ([ $REPLY == Y ] || \
-			      [ $REPLY == y ] || \
-			      [ $REPLY == n ] || \
-			      [ $REPLY == N ] || \
-			      [ $REPLY == q ] || \
-			      [ $REPLY == Q ] || \
-			      [ $REPLY == ? ] )
+		while [[ $CONTINUE_INSTALL_LOOP == y ]]; do
+			read -n 1 -p "Shall I automatically install pottershell to your .bash_profile, or would you prefer to do that yourself? [[Ynq?]] "
+			if ! ([[ $REPLY == Y ]] || \
+			      [[ $REPLY == y ]] || \
+			      [[ $REPLY == n ]] || \
+			      [[ $REPLY == N ]] || \
+			      [[ $REPLY == q ]] || \
+			      [[ $REPLY == Q ]] || \
+			      [[ $REPLY == ? ]] )
 			then
 			
 				# User just pressed enter or replied with something invalid, so we need to prompt again
 				
-				if [ -z $REPLY ]; then
+				if [[ -z $REPLY ]]; then
 					# User pressed enter
 					true
 				else
@@ -41,17 +41,17 @@ if git clone git://github.com/jacksondc/pottershell.git ~/.pottershell; then
 			
 			echo
 			
-			if [ $REPLY == y ] || [ $REPLY == Y ]; then
+			if [[ $REPLY == y ]] || [[ $REPLY == Y ]]; then
 				AUTOINSTALL=y
 				CONTINUE_INSTALL_LOOP=n
-			else if [ $REPLY == n ] || [ $REPLY == N ]; then
+			else if [[ $REPLY == n ]] || [[ $REPLY == N ]]; then
 				AUTOINSTALL=n
 				CONTINUE_INSTALL_LOOP=n
-			else if [ $REPLY == q ] || [ $REPLY == Q ]; then
+			else if [[ $REPLY == q ]] || [[ $REPLY == Q ]]; then
 				echo "OK, I'm quitting. You may wish to \`rm -rf ~/.pottershell\`."
 				echo "Bye!"
 				exit 3
-			else if [ $REPLY == ? ]; then
+			else if [[ $REPLY == ? ]]; then
 				echo "In order for pottershell to work, it needs to be referenced in your shell's startup script."
 				# Please forgive me for this escaping monstrosity
 				echo "pottershell can do this automatically for you by running \`printf \"source ~/.pottershell/pottershell.sh\\n\" >> ~/.bash_profile\`."
@@ -67,10 +67,10 @@ if git clone git://github.com/jacksondc/pottershell.git ~/.pottershell; then
 		AUTOINSTALL=x
 	fi
 
-	if [ $AUTOINSTALL == y ]; then
-		if [ $SHELL = bash ]; then printf "\nsource ~/.pottershell/pottershell.sh\n" >> ~/.bash_profile; fi
+	if [[ $AUTOINSTALL == y ]]; then
+		if [[ $SHELL = bash ]]; then printf "\nsource ~/.pottershell/pottershell.sh\n" >> ~/.bash_profile; fi
 		echo "Successfully autoinstalled pottershell to your initialization file."
-	else if [ $AUTOINSTALL == n ]; then
+	else if [[ $AUTOINSTALL == n ]]; then
 		echo "Refraining from autoinstalling."
 	fi; fi
 	
@@ -83,7 +83,7 @@ if git clone git://github.com/jacksondc/pottershell.git ~/.pottershell; then
 	echo " /_/                                         ...has been installed. Enjoy!"
 	echo
 
-	if ! [ -z ${UNKNOWN_SHELL+x} ]; then
+	if ! [[ -z ${UNKNOWN_SHELL+x} ]]; then
 		echo 'Now all you need to do is put `source ~/.pottershell/pottershell.sh` in your shell startup.'
 		echo "I can't do this automatically, because I don't know what kind of shell $SHELL is. Perhaps send a pull request?"
 	fi

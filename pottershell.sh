@@ -61,11 +61,11 @@ function add_git_alias() {
 # this used to have a fancy for loop, but there were bugs.
 # so now it's some lame `source`-based evaluation.
 
-source shell.aliases
+source ~/.pottershell/shell.aliases
 
 # evaluate git aliases
 
 # this used to have a fancy for loop, but there were bugs.
 # so now it's some lame `source`-based evaluation.
 
-source git.aliases
+source ~/.pottershell/git.aliases

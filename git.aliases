@@ -1,0 +1,11 @@
+git config --global --add alias.avis am
+git config --global --add alias.petrificus-totalus commit
+git config --global --add alias.wingardium-leviosa push
+git config --global --add alias.accio pull
+git config --global --add alias.lumos status
+git config --global --add alias.legilimens log
+git config --global --add alias.ferula merge
+git config --global --add alias.portus add
+git config --global --add alias.scourgify reset
+git config --global --add alias.obliviate "reset --hard"
+git config --global --add alias.tergio clean

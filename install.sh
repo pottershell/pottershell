@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if type git >/dev/null; then
+if type git &>/dev/null; then
 	echo "OK, I'm going to install pottershell now."
 else
 	echo "You don't have git installed! Please install git, then try installing pottershell again."

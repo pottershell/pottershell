@@ -233,16 +233,22 @@ a {
 @keyframes blink
 {
   0%   {  background:rgba(99,222,0,100);  }
-  100% {  background:rgba(99,222,0,0);  }
+  10% {  background:rgba(99,222,0,0);  }
+  50% {  background:rgba(99,222,0,0);  }
+  55% {  background:rgba(99,222,0,100);  }
 }
 
 @-webkit-keyframes blink {
   0%   {  background:rgba(99,222,0,100);  }
-  100% {  background:rgba(99,222,0,0);  }
+  10% {  background:rgba(99,222,0,0);  }
+  50% {  background:rgba(99,222,0,0);  }
+  55% {  background:rgba(99,222,0,100);  }
 }
 @-moz-keyframes blink {
   0%   {  background:rgba(99,222,0,100);  }
-  100% {  background:rgba(99,222,0,0);  }
+  10% {  background:rgba(99,222,0,0);  }
+  50% {  background:rgba(99,222,0,0);  }
+  55% {  background:rgba(99,222,0,100);  }
 }
 
 .cursor {
@@ -256,10 +262,10 @@ a {
   height:1rem;
 
   -webkit-animation-name: blink;
-  -webkit-animation-duration: 1.5s;
+  -webkit-animation-duration: 1s;
   -webkit-animation-iteration-count: infinite;
   -moz-animation-name: blink;
-  -moz-animation-duration: 1.5s;
+  -moz-animation-duration: 1s;
   -moz-animation-iteration-count: infinite;
 }
 

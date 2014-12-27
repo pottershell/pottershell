@@ -233,9 +233,9 @@ a {
 @keyframes blink
 {
   0%   {  background:rgba(99,222,0,100);  }
-  10% {  background:rgba(99,222,0,0);  }
+  5% {  background:rgba(99,222,0,0);  }
   50% {  background:rgba(99,222,0,0);  }
-  55% {  background:rgba(99,222,0,100);  }
+  51% {  background:rgba(99,222,0,100);  }
 }
 
 @-webkit-keyframes blink {
@@ -246,9 +246,9 @@ a {
 }
 @-moz-keyframes blink {
   0%   {  background:rgba(99,222,0,100);  }
-  10% {  background:rgba(99,222,0,0);  }
+  5% {  background:rgba(99,222,0,0);  }
   50% {  background:rgba(99,222,0,0);  }
-  55% {  background:rgba(99,222,0,100);  }
+  51% {  background:rgba(99,222,0,100);  }
 }
 
 .cursor {

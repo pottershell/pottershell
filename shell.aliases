@@ -1,5 +1,5 @@
 if [[ -n $EDITOR ]]; then alias $EDITOR=quill; else alias nano=quill; fi
-alias true=orchideous
+alias orchideous=true
 alias fsck=reparo
 alias ls=lumos
 alias cd=broom

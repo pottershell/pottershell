@@ -1,4 +1,4 @@
-if [[ -n $EDITOR ]]; then alias $EDITOR=quill; else alias nano=quill; fi
+if [[ -n $EDITOR ]]; then alias $EDITOR=quill; else alias quill=nano; fi
 alias orchideous=true
 alias fsck=reparo
 alias ls=lumos

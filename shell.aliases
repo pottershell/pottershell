@@ -1,4 +1,4 @@
-if [[ -n $EDITOR ]]; then alias $EDITOR=quill; else alias quill=nano; fi
+if [[ -n $EDITOR ]]; then alias quill=$EDITOR; else alias quill=nano; fi
 alias orchideous=true
 alias reparo=fsck
 alias lumos=ls
@@ -19,8 +19,8 @@ alias diffindo=cut
 alias rictusempra=fortune
 alias marauder-map=who
 alias homenum-revelio=finger
-alias pushd=apparate
-alias popd=disapparate
+alias apparate=pushd
+alias disapparate=popd
 alias geminio=cp
 alias stupefy="kill -STOP" #(incarcerous?)
 alias avada-kedavra=kill #(finite-incantatem, and kill -9 is avadakedavra?)
@@ -31,7 +31,7 @@ alias colloportus="chmod o-rwx"
 alias alohomora="chmod o+rwx"
 alias reducto=shred
 alias salvio-hexia="chattr +u"
-alias Muffliato="gpg --encrypt"
+alias muffliato="gpg --encrypt"
 alias protego=gpg
 alias protego-horribilis="gpg --sign"
 alias specialis-revelio=man
